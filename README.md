@@ -63,9 +63,9 @@ Now you should be able to login and access K8s dashboard with different namespac
 					
     At this point, Pods are up and service is running however, we cannot access the service from outside the K8s cluster.
 					
-6. In order to access the service from outside, we need to install K8s Ingress. The Ingress requires an Ingress controller to handle outside traffic. We will use [Nginx-Ingress](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) as the default Ingress controller for this project. There are many other Ingress controllers available for K8s.
+6. In order to access the service from outside, we need to install K8s Ingress. The Ingress requires an Ingress controller to handle outside traffic. We will use [Nginx-Ingress](https://docs.nginx.com/nginx-ingress-controller/intro/overview/) as the default Ingress controller for this project. There are many other [Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) available for K8s.
 		
-7. Run this command to install [Nginx-Ingress Controller](https://kubernetes.github.io/ingress-nginx/deploy/):
+7. Run this command to install [Nginx-Ingress controller](https://kubernetes.github.io/ingress-nginx/deploy/):
 		
 		    	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
 			
