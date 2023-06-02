@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: raptor-service-deployment
+  labels:
+    app: raptor-service
+spec:
+  replicas: 2
+  selector: 
+    matchLabels: 
+        app: raptor-service
+  template:
+    metadata:
+        labels:
+            app: raptor-service
+    spec:  
+        containers:
+        - name: raptor-service
+          image: raptor-service:latest
+          resources:
+            requests:
+                memory: "64Mi"
+                cpu: "250m"
+            limits:
+                memory: "128Mi"
+                cpu: "500m"
+          imagePullPolicy: IfNotPresent 
+          ports:
+          - containerPort: 8080
+    
+    
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: raptor-service-8080
+spec:
+  selector:
+    app: raptor-service
+  ports:
+  - name: http
+    protocol: TCP
+    port: 8080
+    targetPort: 8080

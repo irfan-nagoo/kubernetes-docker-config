@@ -1,0 +1,23 @@
+Docker:
+-------
+
+Build image : docker build --tag raptor-service .
+List images : docker images
+Delete image: docker image rm raptor-service
+
+Kubernetes:
+-----------
+
+kubectl -n kubernetes-dashboard create serviceaccount admin-user
+kubectl -n kubernetes-dashboard create clusterrolebinding admin-user --clusterrole=cluster-admin
+kubectl -n kubernetes-dashboard delete serviceaccount admin-user
+kubectl -n kubernetes-dashboard delete clusterrolebinding cluster-admin
+
+kubectl -n kubernetes-dashboard create token admin-user
+
+kubectl describe service raptor-service-8080
+kubectl get pod -n default
+
+kubectl delete -n default pod raptor-service	
+kubectl delete -n default service raptor-service-8080
+kubectl delete -n default deployment raptor-service-deployment
