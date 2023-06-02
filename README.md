@@ -46,19 +46,19 @@ Deployment of application on Kubernetes cluster (With Nginx-Ingress):
 
 2. Open CLI in "raptor-service" directory and run this command to generate docker image of the raptor-service application:
 				
-            docker build --tag raptor-service .
+            	docker build --tag raptor-service .
 					
 3. Run this command to check if the docker image is create:
 
-		    docker images
+			docker images
 
 4. Once the docker image is created,  run this command to generate and deploy K8s Pods along with the required K8s service
 
-		    kubectl apply -f C:\kubernetes-docker-config\k8s-config\raptor-service-deployment.yaml
+			kubectl apply -f C:\kubernetes-docker-config\k8s-config\raptor-service-deployment.yaml
 
 5. Check K8s console to make sure Pods (2 replicas) and service is created. Optionally, we can also run this command to check it:
 
-		    kubectl get pod -n default
+		    	kubectl get pod -n default
 					
     At this point, Pods are up and service is running however, we cannot access the service from outside the K8s cluster.
 					
@@ -66,22 +66,18 @@ Deployment of application on Kubernetes cluster (With Nginx-Ingress):
 		
 7. Run this command to install Nginx-Ingress ingress controller:
 		
-		    kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
+		    	kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.8.0/deploy/static/provider/cloud/deploy.yaml
 			
 8. Run this command to check Nginx-Ingress is running:
 
-		    kubectl get pod -n ingress-nginx
+		    	kubectl get pod -n ingress-nginx
 		
 9. If its running (if not troubleshoot the issue), run this command to create the Ingress component for raptor-service:
 
-		    kubectl apply -f C:\Users\adin\Downloads\k8s-config\raptor-service-ingress.yaml
+		    	kubectl apply -f C:\Users\adin\Downloads\k8s-config\raptor-service-ingress.yaml
 					
-10. Try the Swagger url of the raptor-service now:
 
-		    http://localhost/swagger-ui.html
-		    or
-		    https://localhost/swagger-ui.html
-		
-	Both http and https endpoints should be accessible and Swagger UI should come up.
-		
+Try the Swagger url of the raptor-service now. Both http and https endpoints should be accessible and Swagger UI should come up:
+
+http://localhost/swagger-ui.html  or https://localhost/swagger-ui.html
 		
