@@ -43,8 +43,10 @@ Now you should be able to login and access K8s dashboard with different namespac
 	
 ## Deployment of application on Kubernetes cluster (With Nginx-Ingress):
 
-1. Take "Dockerfile" file (.dockerignore file optional) from "docker-config" directory of this project and put it in "raptor-service" directory.
+1. Take "Dockerfile" file (.dockerignore file optional) from "docker-config" directory of this project and put it in "raptor-service" directory. Run this command to generate Maven wrapper:
 
+			mvn wrapper:wrapper
+	       
 2. Open CLI in "raptor-service" directory and run this command to generate docker image of the raptor-service application:
 				
             	docker build --tag raptor-service .
